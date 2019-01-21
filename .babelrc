@@ -1,0 +1,10 @@
+{
+  "presets": ["env"],
+  "plugins": [
+    ["transform-class-properties"],
+    ["transform-decorators-legacy"],
+    ["transform-react-jsx", {
+      "pragma": "h"
+    }]
+  ]
+}

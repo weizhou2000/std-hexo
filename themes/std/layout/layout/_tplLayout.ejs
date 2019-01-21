@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="cleartype" content="on">
+  <meta name="MobileOptimized" content="320">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <!--meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover"-->
+  <title></title>
+  
+  <!--inject css-->
+  <%if(injectCss){%>
+  <% injectCss.map(function(c){%>
+  <%if(c.indexOf('http')>-1){%>
+  <link href="<%=c%>" rel="stylesheet">
+  <%}else{%>
+  <%- css(c)%>
+  <%}%>
+  <%})%>
+  <%}%>
+
+  <!--add css-->
+  <%if(page.addCss){%>
+  <% page.addCss.map(function(c){%>
+  <%if(c.indexOf('http')>-1){%>
+  <link href="<%=c%>" rel="stylesheet">
+  <%}else{%>
+  <%- css(c)%>
+  <%}%>
+  <%})%>
+  <%}%>
+
+
+  <!--mapp css-->
+  <%if(page.mappCss){%>
+  <% page.mappCss.map(function(c){%>
+  <%if(c.indexOf('http')>-1){%>
+  <link href="<%=c%>" rel="stylesheet">
+  <%}else{%>
+  <%- css(c)%>
+  <%}%>
+  <%})%>
+  <%}%>
+
+</head>
+
+
+<%- body %>
+
+<!--inject js-->
+<%if(injectJs){%>
+<% injectJs.map(function(c){%>
+<%if(c.indexOf('http')>-1){%>
+<script src="<%=c%>"></script>
+<%}else{%>
+<%- js(c)%>
+<%}%>
+<%})%>
+<%}%>
+
+<!--mapp js-->
+<%if(page.mappJs){%>
+<% page.mappJs.map(function(c){%>
+<%if(c.indexOf('http')>-1){%>
+<script src="<%=c%>"></script>
+<%}else{%>
+<%- js('mapp/'+c+'-'+site.data['mapp-ver'].ver)%>
+<%}%>
+<%})%>
+<%}%>
+
+
+</html>
